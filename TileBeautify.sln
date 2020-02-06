@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileBeautify", "TileBeautify\TileBeautify.csproj", "{68841D88-4C95-4B89-97E9-21837C6B7B15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenURL", "OpenURL\OpenURL.csproj", "{67A849E4-9C5A-45C5-8F53-C5628CAC9441}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68841D88-4C95-4B89-97E9-21837C6B7B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68841D88-4C95-4B89-97E9-21837C6B7B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68841D88-4C95-4B89-97E9-21837C6B7B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68841D88-4C95-4B89-97E9-21837C6B7B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A849E4-9C5A-45C5-8F53-C5628CAC9441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A849E4-9C5A-45C5-8F53-C5628CAC9441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A849E4-9C5A-45C5-8F53-C5628CAC9441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A849E4-9C5A-45C5-8F53-C5628CAC9441}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FDA5251-35C0-46F4-9570-083B2E23CFC5}
+	EndGlobalSection
+EndGlobal
