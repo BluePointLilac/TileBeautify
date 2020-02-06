@@ -108,10 +108,10 @@
             this.llbBiliBili.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.llbBiliBili.Location = new System.Drawing.Point(139, 90);
             this.llbBiliBili.Name = "llbBiliBili";
-            this.llbBiliBili.Size = new System.Drawing.Size(243, 20);
+            this.llbBiliBili.Size = new System.Drawing.Size(51, 20);
             this.llbBiliBili.TabIndex = 6;
             this.llbBiliBili.TabStop = true;
-            this.llbBiliBili.Text = "https://space.bilibili.com/34492771";
+            this.llbBiliBili.Text = "Bilibili";
             // 
             // label5
             // 
