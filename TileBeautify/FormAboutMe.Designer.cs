@@ -129,10 +129,10 @@
             this.llbGitHub.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.llbGitHub.Location = new System.Drawing.Point(129, 53);
             this.llbGitHub.Name = "llbGitHub";
-            this.llbGitHub.Size = new System.Drawing.Size(171, 20);
+            this.llbGitHub.Size = new System.Drawing.Size(55, 20);
             this.llbGitHub.TabIndex = 4;
             this.llbGitHub.TabStop = true;
-            this.llbGitHub.Text = "https://www.github.com";
+            this.llbGitHub.Text = "Github";
             // 
             // label4
             // 
