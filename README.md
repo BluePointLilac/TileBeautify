@@ -29,3 +29,9 @@
 即无法修改其磁贴样式，除非关闭其自我保护（不建议）。
 
 + 祝你使用愉快！
+
+## 下载
+
++ [Github](https://github.com/BluePointLilac/TileBeautify/releases)
+
++ [蓝奏云](https://www.lanzous.com/b00nb16if)
