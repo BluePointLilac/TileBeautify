@@ -194,6 +194,7 @@ namespace TileBeautify {
                 string newUrlIniPath = urlFolder + "\\" + text + ".ini";
                 if (!File.Exists(newUrlExePath)) File.Copy(myUrlExePath, newUrlExePath);
                 if (!File.Exists(newUrlIniPath)) File.Copy(myUrlIniPath, newUrlIniPath);
+                File.SetAttributes(newUrlIniPath, FileAttributes.Hidden);
                 myExePath = newUrlExePath;
             }
         }
