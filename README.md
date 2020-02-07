@@ -30,4 +30,5 @@ URL磁贴可打开网址、文件、文件目录。
 
 下载地址：https://github.com/BluePointLilac/TileBeautify/releases
 
-蓝奏云备份：https://www.lanzous.com/b00nb16i
+蓝奏云备份：https://www.lanzous.com/b00nb16if
+
