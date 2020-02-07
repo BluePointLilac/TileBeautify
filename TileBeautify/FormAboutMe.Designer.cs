@@ -167,12 +167,11 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(397, 180);
+            this.label1.Size = new System.Drawing.Size(399, 191);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -193,10 +192,8 @@
             // FormAboutMe
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(413, 235);
             this.Controls.Add(this.tab);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAboutMe";
@@ -208,7 +205,6 @@
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             this.tabDescription.ResumeLayout(false);
-            this.tabDescription.PerformLayout();
             this.tab.ResumeLayout(false);
             this.ResumeLayout(false);
 

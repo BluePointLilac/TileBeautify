@@ -127,7 +127,7 @@ namespace TileBeautify {
                     cmbCommand.SelectedIndex = 0;
                     var mb = MessageBox.Show("缺失OpenURL.exe文件,请前往GitHub下载完整版", "错误提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                     if (mb == DialogResult.OK) {
-                        Process.Start("explorer.exe", "https://github.com/");
+                        Process.Start("explorer.exe", "https://github.com/BluePointLilac/TileBeautify/releases");
                     }
                 }
                 else InputUrl();
@@ -299,14 +299,20 @@ namespace TileBeautify {
                 tileXml.Square70x70Logo = string.Empty;
                 tileXml.Square44x44Logo = string.Empty;
             }
+
             try {
                 if (chkUseEditedPic.Checked == true) {
                     Directory.CreateDirectory(picFolder);
                     picEditedView.Image.Save(picPath, ImageFormat.Png);
+                    File.SetAttributes(picFolder, FileAttributes.Hidden);
                 }
                 if (cmbTileShowMode.SelectedIndex == 0) {
-                    if (Directory.Exists(picFolder)) {
-                        Directory.Delete(picFolder, true);
+                    if (File.Exists(picPath)) {
+                        File.Delete(picPath);
+                    }
+                    //文件夹中没有文件时删除
+                    if (Directory.GetDirectories(picFolder).Length <= 0 && Directory.GetFiles(picFolder).Length <= 0) {
+                        Directory.Delete(picFolder);
                     }
                 }
                 tileXml.WriteXml(tileXml.XmlPath);

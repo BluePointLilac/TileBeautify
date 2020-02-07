@@ -16,10 +16,13 @@ namespace TileBeautify {
             var d = new DirectoryInfo(folder);
 
             foreach (var fi in d.GetFiles()) {
-                string lnkPath = fi.FullName;
-                string format = Path.GetExtension(lnkPath).ToLower();
-                if (format == ".lnk") {
-                    lnkPathList.Add(lnkPath);
+                //不读取隐藏文件
+                if (fi.Attributes != FileAttributes.Hidden) {
+                    string lnkPath = fi.FullName;
+                    string format = Path.GetExtension(lnkPath).ToLower();
+                    if (format == ".lnk") {
+                        lnkPathList.Add(lnkPath);
+                    }
                 }
             }
 

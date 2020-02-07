@@ -58,7 +58,13 @@ namespace TileBeautify {
             XElement root = new XElement("Application");
             root.Add(new XAttribute(XNamespace.Xmlns + "xns", ns));
             root.Add(doc);
+            if (File.Exists(filePath)) {
+                //如果存在，先将文件属性设为可见，不然无法写入
+                File.SetAttributes(filePath, FileAttributes.Normal);
+            }
             root.Save(filePath);
+            //文件属性设为隐藏
+            File.SetAttributes(filePath, FileAttributes.Hidden);
         }
 
         //读取xml文件
