@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace TileBeautify {
@@ -44,9 +45,6 @@ namespace TileBeautify {
             if (File.Exists(openURlExePath)) {
                 if (!File.Exists(myUrlExePath)) {
                     File.Copy(openURlExePath, myUrlExePath);
-                }
-                if (!File.Exists(myUrlIniPath)) {
-                    File.Create(myUrlIniPath);
                 }
             }
         }
@@ -150,7 +148,8 @@ namespace TileBeautify {
             }
             else {
                 txtPathView.Text = urlPath;
-                File.WriteAllText(myUrlIniPath, urlPath);
+                if (File.Exists(myUrlIniPath)) File.Delete(myUrlIniPath);
+                File.WriteAllText(myUrlIniPath, urlPath, Encoding.Default);
                 txtNameView.Text = "我的网址";
                 myExePath = myUrlExePath;
                 btnSaveStyle.Enabled = true;
@@ -168,7 +167,7 @@ namespace TileBeautify {
 
         //输入url链接输入框窗体初始化
         private void FormLoadForInputUrl(FormInputBox frm) {
-            frm.Text = "请输入URL地址或文件(夹)路径";
+            frm.Text = "请输入URL地址或文件夹路径";
             frm.txtInput.Text = txtPathView.Text;
             frm.Icon = this.Icon;
         }
@@ -192,8 +191,8 @@ namespace TileBeautify {
                 string text = txtNameView.Text;
                 string newUrlExePath = urlFolder + "\\" + text + ".exe";
                 string newUrlIniPath = urlFolder + "\\" + text + ".ini";
-                if (!File.Exists(newUrlExePath)) File.Copy(myUrlExePath, newUrlExePath);
-                if (!File.Exists(newUrlIniPath)) File.Copy(myUrlIniPath, newUrlIniPath);
+                File.Copy(myUrlExePath, newUrlExePath);
+                File.Copy(myUrlIniPath, newUrlIniPath);
                 File.SetAttributes(newUrlIniPath, FileAttributes.Hidden);
                 myExePath = newUrlExePath;
             }
@@ -266,12 +265,29 @@ namespace TileBeautify {
         private void SaveStyle(object sender, EventArgs e) {
             string tileName = txtNameView.Text;
             if (cmbCommand.SelectedIndex == 1) {
-                ReplaceUrlFileName();
                 if (tileName == "我的网址") {
                     MessageBox.Show("请更改你的磁贴名称", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     ReplaceName(null, null);
                     return;
                 }
+
+                var di = new DirectoryInfo(urlFolder);
+                foreach (var fi in di.GetFiles()) {
+                    string fileName = Path.GetFileNameWithoutExtension(fi.FullName);
+                    if (tileName == fileName) {
+                        string iniPath = urlFolder + "\\" + fileName + ".ini";
+                        string urlPath = File.ReadAllText(iniPath, Encoding.Default);
+                        var mb = MessageBox.Show("已存在同名文件URL磁贴程序，确认覆盖？" +
+                            "\n链接：" + urlPath, "错误提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+                        if (mb == DialogResult.OK) {
+                            File.Delete(fi.FullName);
+                            File.Delete(iniPath);
+                        }
+                        else return;
+                    }
+                }
+                ReplaceUrlFileName();
             }
 
             TileXml tileXml = new TileXml(myExePath) {

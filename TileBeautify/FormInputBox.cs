@@ -5,6 +5,7 @@ namespace TileBeautify {
     public partial class FormInputBox : Form {
         public FormInputBox(Action<FormInputBox> actionFrmLoad, Action<FormInputBox> actionBtnOKClick) {
             InitializeComponent();
+            this.AcceptButton = btnOK;
             this.CancelButton = btnCancel;
 
             ///在窗体加载、点击“确认”、“取消”按钮后分别发生啥子
