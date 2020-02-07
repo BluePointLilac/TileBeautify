@@ -393,7 +393,7 @@ namespace TileBeautify {
             picColorView.BackColor = frm.PickedColor;
         }
 
-        //颜色选择框选色
+        //颜色选择框中选色
         private void SelectColor(object sender, EventArgs e) {
             var cd = new ColorDialog {
                 FullOpen = true,
@@ -404,7 +404,7 @@ namespace TileBeautify {
             picColorView.BackColor = cd.Color;
         }
 
-        //输入html颜色代码
+        //输入HTML颜色代码
         private void InputColorCode(object sender, EventArgs e) {
             var action1 = new Action<FormInputBox>(FormLoadForInputHTMLCode);
             var action2 = new Action<FormInputBox>(BtnOkClickForInputHTMLCode);
@@ -412,17 +412,18 @@ namespace TileBeautify {
             frm.ShowDialog();
         }
 
-        //输入html颜色代码的输入框窗体初始化
+        //输入HTML颜色代码的输入框窗体初始化
         public void FormLoadForInputHTMLCode(FormInputBox frm) {
             frm.Icon = this.Icon;
             frm.Text = "请输入HTML颜色代码";
             frm.txtInput.Text = txtCodeView.Text;
         }
 
-        //输入html颜色代码的点击ok按钮事件
+        //输入HTML颜色代码的点击ok按钮事件
         public void BtnOkClickForInputHTMLCode(FormInputBox frm) {
             string text = frm.txtInput.Text;
             try {
+                //考虑到用户懒惰行为：不输入#，不带#的纯数字解析值不同
                 text = "#" + text;
                 ColorTranslator.FromHtml(text);
             }
