@@ -48,7 +48,7 @@
             this.btnESC.Text = "btnESC";
             this.btnESC.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // FormPickColor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -57,9 +57,8 @@
             this.Controls.Add(this.btnESC);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form2";
+            this.Name = "FormPickColor";
             this.ShowInTaskbar = false;
-            this.Text = "Form2";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.picScreenShot)).EndInit();

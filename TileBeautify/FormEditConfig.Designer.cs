@@ -541,6 +541,7 @@
             this.Name = "FormEditConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TileBeautify-编辑样式";
+            this.TopMost = true;
             this.grpBluePoint.ResumeLayout(false);
             this.grpColor.ResumeLayout(false);
             this.grpColor.PerformLayout();

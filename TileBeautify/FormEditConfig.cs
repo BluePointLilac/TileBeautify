@@ -100,7 +100,7 @@ namespace TileBeautify {
             };
 
             btnSelectExe.Click += (sender, e) => {
-                if (cmbCommand.SelectedIndex == 0) SelectExe(null, null);
+                if (cmbCommand.SelectedIndex == 0) SelectExe(sender, e);
                 else InputUrl();
             };
             btnAboutMe.Click += (sender, e) => new FormAboutMe() { Icon = this.Icon }.ShowDialog();
@@ -278,11 +278,11 @@ namespace TileBeautify {
                 ForegroundText = (cmbFontColor.SelectedIndex == 1) ? "dark" : "light",
                 ShowNameOnSquare150x150Logo = (!chkShowName.Checked) ? "off" : "on"
             };
-            string picPath = null;
-            string picFolder = tileXml.ExeFolder + "\\" + MyName;
+            string picFolder = tileXml.ExeFolder + MyName;
+            string picPath = picFolder + "\\" + tileXml.ExeName + ".png";
+
             if (cmbTileShowMode.SelectedIndex == 1) {
                 if (chkUseEditedPic.Checked == true) {
-                    picPath = picFolder + "\\" + tileXml.ExeName + ".png";
                     string shortPicPath = MyName + "\\" + tileXml.ExeName + ".png";
                     tileXml.Square150x150Logo = shortPicPath;
                     tileXml.Square70x70Logo = shortPicPath;
@@ -303,16 +303,18 @@ namespace TileBeautify {
             try {
                 if (chkUseEditedPic.Checked == true) {
                     Directory.CreateDirectory(picFolder);
-                    picEditedView.Image.Save(picPath, ImageFormat.Png);
                     File.SetAttributes(picFolder, FileAttributes.Hidden);
+                    picEditedView.Image.Save(picPath, ImageFormat.Png);
                 }
                 if (cmbTileShowMode.SelectedIndex == 0) {
-                    if (File.Exists(picPath)) {
-                        File.Delete(picPath);
-                    }
-                    //文件夹中没有文件时删除
-                    if (Directory.GetDirectories(picFolder).Length <= 0 && Directory.GetFiles(picFolder).Length <= 0) {
-                        Directory.Delete(picFolder);
+                    if (Directory.Exists(picFolder)) {
+                        if (File.Exists(picPath)) {
+                            File.Delete(picPath);
+                            //文件夹中没有文件时删除
+                            if (Directory.GetDirectories(picFolder).Length <= 0 && Directory.GetFiles(picFolder).Length <= 0) {
+                                Directory.Delete(picFolder);
+                            }
+                        }
                     }
                 }
                 tileXml.WriteXml(tileXml.XmlPath);
@@ -338,17 +340,15 @@ namespace TileBeautify {
                 UseIcoAsPic();
             }
             else {
-                if (isAlreadyHasPic == false) {
-                    if (picEditedView.Image != null) {
+                if (picEditedView.Image != null) {
+                    if (isAlreadyHasPic) {
+                        chkUseEditedPic.Checked = false;
+                        chkUseEditedPic.Enabled = true;
+                    }
+                    else {
                         chkUseEditedPic.Checked = true;
                         chkUseEditedPic.Enabled = false;
                     }
-                }
-                else {
-                    if (picEditedView.Image != null) {
-                        chkUseEditedPic.Enabled = true;
-                    }
-                    ShowPic(myExePath);
                 }
             }
         }
@@ -507,9 +507,8 @@ namespace TileBeautify {
                 string filePath = e.Files[0];
                 string fileName = Path.GetFileNameWithoutExtension(filePath);
                 filePath = GetRealPath(filePath);
-                if (filePath != null) {
-                    FillInfo(filePath, fileName);
-                }
+                if (filePath == null) return;
+                FillInfo(filePath, fileName);
             }
         }
 
@@ -518,14 +517,15 @@ namespace TileBeautify {
             var ofd = new OpenFileDialog {
                 Title = "请选择一个exe应用程序或者其快捷方式",
                 Filter = "应用程序|*.exe",
+                //禁止直接获取到快捷方式目标路径，以便于获取快捷方式名称
                 DereferenceLinks = false
             };
             if (ofd.ShowDialog() != DialogResult.OK) return;
             string filePath = ofd.FileName;
-            if (filePath != null) return;
+            if (filePath == null) return;
             string fileName = Path.GetFileNameWithoutExtension(filePath);
             filePath = GetRealPath(filePath);
-            if (filePath != null) return;
+            if (filePath == null) return;
             FillInfo(filePath, fileName);
         }
 
