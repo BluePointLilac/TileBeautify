@@ -41,9 +41,8 @@ namespace TileBeautify {
             foreach (string item in lnkPathList) {
                 var shortcut = (IWshRuntimeLibrary.IWshShortcut)wsh.CreateShortcut(item);
                 string targetPath = shortcut.TargetPath;
-                //考虑快捷方式带参数，故不直接判断相等
-                bool flag = targetPath.Contains(exePath);
-                if (flag) {
+                //如果快捷方式目标位置等于选定的程序路径
+                if (targetPath==exePath) {
                     isAlreadyHasLnk = true;
                     pathList.Add(item);
                 }
@@ -61,6 +60,7 @@ namespace TileBeautify {
                     var shortcut = (IWshRuntimeLibrary.IWshShortcut)wsh.CreateShortcut(lnkPath);
                     string newLnkPath = Path.GetDirectoryName(lnkPath) + "\\" + tileName + ".lnk";
                     string targetPath = shortcut.TargetPath;             //目标位置
+                    string arguments = shortcut.Arguments;               //目标参数
                     string workingDirectory = shortcut.WorkingDirectory; //工作目录
                     string description = shortcut.Description;           //备注
                     string hotkey = shortcut.Hotkey;                     //快捷键
@@ -69,6 +69,7 @@ namespace TileBeautify {
 
                     shortcut = (IWshRuntimeLibrary.IWshShortcut)wsh.CreateShortcut(newLnkPath);
                     shortcut.TargetPath = targetPath;
+                    shortcut.Arguments = arguments;
                     shortcut.WorkingDirectory = workingDirectory;
                     shortcut.Description = description;
                     shortcut.Hotkey = hotkey;
