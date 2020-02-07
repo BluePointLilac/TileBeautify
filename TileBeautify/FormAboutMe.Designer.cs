@@ -106,7 +106,7 @@
             // 
             this.llbBiliBili.AutoSize = true;
             this.llbBiliBili.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.llbBiliBili.Location = new System.Drawing.Point(139, 90);
+            this.llbBiliBili.Location = new System.Drawing.Point(172, 90);
             this.llbBiliBili.Name = "llbBiliBili";
             this.llbBiliBili.Size = new System.Drawing.Size(51, 20);
             this.llbBiliBili.TabIndex = 6;
@@ -119,9 +119,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(8, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 20);
+            this.label5.Size = new System.Drawing.Size(168, 20);
             this.label5.TabIndex = 5;
-            this.label5.Text = "B站主页(欢迎关注)：";
+            this.label5.Text = "B站视频教程(欢迎关注)：";
             // 
             // llbGitHub
             // 
