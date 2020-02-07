@@ -35,3 +35,8 @@
 + [Github](https://github.com/BluePointLilac/TileBeautify/releases)
 
 + [蓝奏云](https://www.lanzous.com/b00nb16if)
+
+## 教程
+
++ [bilibili](https://www.bilibili.com/video/av87431625)
+
