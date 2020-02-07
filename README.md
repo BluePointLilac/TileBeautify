@@ -16,7 +16,7 @@
 
 + 图片裁切，制作拼图磁贴
 
-+ 制作URL链接磁贴，可打开网址、文件以及文件夹
++ 制作URL链接磁贴，可打开网址、以及文件夹
 
 ## 注意
 
@@ -35,3 +35,8 @@
 + [Github](https://github.com/BluePointLilac/TileBeautify/releases)
 
 + [蓝奏云](https://www.lanzous.com/b00nb16if)
+
+## 教程
+
++ [bilibili](https://www.bilibili.com/video/av87431625)
+
