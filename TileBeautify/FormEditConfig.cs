@@ -29,7 +29,7 @@ namespace TileBeautify
         private static readonly string urlFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\" + MyName + "\\URL";
         private static readonly string myUrlExePath = urlFolder + "\\我的网址.exe";
         private static readonly string myUrlIniPath = urlFolder + "\\我的网址.ini";
-        private static readonly string gitHubUrl = "https://github.com/BluePointLilac/TileBeautify/releases";
+        public static readonly string gitHubUrl = "https://github.com/BluePointLilac/TileBeautify/releases";
 
         private string myExePath;//选取的程序的文件路径
         private string urlPath = null;//url链接地址

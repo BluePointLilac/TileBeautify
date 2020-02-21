@@ -6,7 +6,7 @@ namespace TileBeautify {
         public FormAboutMe() {
             InitializeComponent();
             new ResizeFont().KeepFontSize(this);
-            llbGitHub.Click+=(sender,e)=> Process.Start("explorer.exe", "https://github.com/BluePointLilac/TileBeautify/releases");
+            llbGitHub.Click+=(sender,e)=> Process.Start("explorer.exe", FormEditConfig.gitHubUrl);
             llbBiliBili.Click += (sender, e) => Process.Start("explorer.exe", "https://www.bilibili.com/video/av87431625");
         }
     }
