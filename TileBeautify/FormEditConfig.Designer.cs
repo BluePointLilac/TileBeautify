@@ -567,7 +567,7 @@
         }
 
         #endregion
-
+        
         private System.Windows.Forms.GroupBox grpBluePoint;
         private System.Windows.Forms.Button btnAboutMe;
         private System.Windows.Forms.Button btnClearStyle;
