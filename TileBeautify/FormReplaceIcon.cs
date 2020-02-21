@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TileBeautify {
@@ -8,6 +9,7 @@ namespace TileBeautify {
 
         public FormReplaceIcon(string iconPath) {
             this.InitializeComponent();
+            new ResizeFont().KeepFontSize(this);
             this.IconPath = null;
             this.IconIndex = -1;
             this.AcceptButton = btnOK;
@@ -17,7 +19,7 @@ namespace TileBeautify {
                 txtPath.Text = iconPath;
                 TileIcon tileIcon = new TileIcon();
                 tileIcon.LoadIcon(iconPath);
-                tileIcon.ShowIcon(pnlICO);
+                tileIcon.ShowIcon(flpIcon);
             }
             btnBrowse.Click += BtnBrowse_Click;
             btnOK.Click += BtnOK_Click;
@@ -32,25 +34,19 @@ namespace TileBeautify {
             if (ofd.ShowDialog() == DialogResult.OK) {
                 string fileName = ofd.FileName;
                 txtPath.Text = fileName;
-                pnlICO.Controls.Clear();
+                flpIcon.Controls.Clear();
                 TileIcon tileIcon = new TileIcon();
                 tileIcon.LoadIcon(fileName);
-                tileIcon.ShowIcon(pnlICO);
+                tileIcon.ShowIcon(flpIcon);
             }
         }
 
         private void BtnOK_Click(object sender, EventArgs e) {
-            var array = pnlICO.Controls.Find("flp", false);
-            if (array.Length != 0) {
-                Control control = array[0];
-                foreach (PictureBox picParent in control.Controls) {
-                    if (picParent.BackColor == TileIcon.selectColor) {
-                        this.IconPath = txtPath.Text;
-                        foreach (PictureBox pic in picParent.Controls) {
-                            this.IconIndex = Convert.ToInt32(pic.Name);
-                        }
-                        this.Dispose();
-                    }
+            foreach (PictureBox pic in flpIcon.Controls) {
+                if (pic.BackColor == TileIcon.selectColor) {
+                    this.IconPath = txtPath.Text;
+                    this.IconIndex = Convert.ToInt32(pic.Name);
+                    this.Dispose();
                 }
             }
             if (this.IconIndex == -1) {

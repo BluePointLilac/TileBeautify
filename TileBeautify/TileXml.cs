@@ -6,16 +6,16 @@ using System.Xml.Linq;
 namespace TileBeautify {
     public class TileXml {
         private readonly XmlDocument xmlDoc = new XmlDocument();//xml文档
-        public string ExeName {get; set;}//exe文件名
-        public string ExeFolder {get;set;}//exe文件夹
-        public string XmlPath {get;set;}//xml文件路径
-        public bool MightHasPic {get;private set; }//可能存在路径判断不存在的可缩放图片
-        public string ShowNameOnSquare150x150Logo {get;set;}//是否显示文字
-        public string Square150x150Logo {get;set;}//图片文件路径
-        public string Square70x70Logo {get;set;}
-        public string Square44x44Logo {get;set;}
-        public string ForegroundText {get;set;}//文字颜色
-        public string BackgroundColor {get;set;}//背景颜色
+        public string ExeName { get; set; }//exe文件名
+        public string ExeFolder { get; set; }//exe文件夹
+        public string XmlPath { get; set; }//xml文件路径
+        public bool MightHasPic { get; private set; }//可能存在路径判断不存在的可缩放图片
+        public string ShowNameOnSquare150x150Logo { get; set; }//是否显示文字
+        public string Square150x150Logo { get; set; }//图片文件路径
+        public string Square70x70Logo { get; set; }
+        public string Square44x44Logo { get; set; }
+        public string ForegroundText { get; set; }//文字颜色
+        public string BackgroundColor { get; set; }//背景颜色
 
         public TileXml(string exePath) {
             ExeName = Path.GetFileNameWithoutExtension(exePath);
@@ -38,7 +38,7 @@ namespace TileBeautify {
         }
 
         //写入xml文件
-        public void WriteXml(string filePath) {
+        public void WriteXml() {
             XElement doc = new XElement("VisualElements");
             doc.Add(new XAttribute("ShowNameOnSquare150x150Logo", ShowNameOnSquare150x150Logo));
 
@@ -58,13 +58,12 @@ namespace TileBeautify {
             XElement root = new XElement("Application");
             root.Add(new XAttribute(XNamespace.Xmlns + "xns", ns));
             root.Add(doc);
-            if (File.Exists(filePath)) {
+            if (File.Exists(XmlPath)) {
                 //如果存在，先将文件属性设为可见，不然无法写入
-                File.SetAttributes(filePath, FileAttributes.Normal);
+                File.SetAttributes(XmlPath, FileAttributes.Normal);
             }
-            root.Save(filePath);
-            //文件属性设为隐藏
-            File.SetAttributes(filePath, FileAttributes.Hidden);
+            root.Save(XmlPath);
+            SystemHidenFile.HideFile(XmlPath);
         }
 
         //读取xml文件

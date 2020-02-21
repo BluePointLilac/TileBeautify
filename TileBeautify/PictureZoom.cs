@@ -8,8 +8,8 @@ namespace TileBeautify {
 		public static Image ZoomPic(Image image, double scale) {
 			int ow = image.Width;
 			int oh = image.Height;
-			int nw = Convert.ToInt32((double)ow * scale);
-			int nh = Convert.ToInt32((double)oh * scale);
+			int nw = Convert.ToInt32(ow * scale);
+			int nh = Convert.ToInt32(oh * scale);
 			Bitmap bitmap = new Bitmap(nw, nh);
 			Graphics g = Graphics.FromImage(bitmap);
 			g.Clear(Color.Transparent);

@@ -192,7 +192,7 @@
             // 
             // btnInputColorCode
             // 
-            this.btnInputColorCode.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnInputColorCode.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnInputColorCode.Location = new System.Drawing.Point(182, 105);
             this.btnInputColorCode.Name = "btnInputColorCode";
             this.btnInputColorCode.Size = new System.Drawing.Size(98, 26);
@@ -372,13 +372,15 @@
             // txtPathView
             // 
             this.txtPathView.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPathView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPathView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPathView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtPathView.Enabled = false;
             this.txtPathView.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPathView.Location = new System.Drawing.Point(0, 89);
+            this.txtPathView.Location = new System.Drawing.Point(3, 98);
             this.txtPathView.Name = "txtPathView";
-            this.txtPathView.Size = new System.Drawing.Size(287, 22);
+            this.txtPathView.Size = new System.Drawing.Size(287, 15);
             this.txtPathView.TabIndex = 6;
+            this.txtPathView.Text = "拖动程序图标到预览窗格,或点击\"选取程序\"按钮";
             // 
             // btnSelectExe
             // 

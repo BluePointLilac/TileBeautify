@@ -80,8 +80,13 @@
     <Compile Include="FormAboutMe.Designer.cs">
       <DependentUpon>FormAboutMe.cs</DependentUpon>
     </Compile>
-    <Compile Include="DefaultWebBroeser.cs" />
     <Compile Include="ElevatedDragDropManager.cs" />
+    <Compile Include="FormMyMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMyMessageBox.Designer.cs">
+      <DependentUpon>FormMyMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPickColor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,11 +126,15 @@
     <Compile Include="ReplaceCursor.cs" />
     <Compile Include="ResizeFont.cs" />
     <Compile Include="Shortcut.cs" />
+    <Compile Include="SystemHidenFile.cs" />
     <Compile Include="ThemeColor.cs" />
     <Compile Include="TileIcon.cs" />
     <Compile Include="TileXml.cs" />
     <EmbeddedResource Include="FormAboutMe.resx">
       <DependentUpon>FormAboutMe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMyMessageBox.resx">
+      <DependentUpon>FormMyMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPickColor.resx">
       <DependentUpon>FormPickColor.cs</DependentUpon>

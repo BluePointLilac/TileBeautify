@@ -5,6 +5,7 @@ namespace TileBeautify {
     public partial class FormInputBox : Form {
         public FormInputBox(Action<FormInputBox> actionFrmLoad, Action<FormInputBox> actionBtnOKClick) {
             InitializeComponent();
+            new ResizeFont().KeepFontSize(this);
             this.AcceptButton = btnOK;
             this.CancelButton = btnCancel;
 
@@ -14,7 +15,14 @@ namespace TileBeautify {
             ///已在.Designer.cs里面将所有控件设为public,故在调用FormInputBox类时可直接访问所有控件
             ///虽然可直接引用Microsoft.VisualBasic中的InputBox,但是就是想自己写一个
             this.Load += (sender, e) => actionFrmLoad(this);
-            btnOK.Click += (sender, e) => actionBtnOKClick(this);
+            btnOK.Click += (sender, e) => {
+                if (txtInput.Text == string.Empty)
+                {
+                    new FormMyMessageBox("不能为空").Show();
+                    return;
+                }
+                actionBtnOKClick(this); 
+            };
             btnCancel.Click += (sender, e) => {
                 this.txtInput.Text = null;
                 this.Dispose();

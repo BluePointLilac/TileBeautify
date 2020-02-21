@@ -138,7 +138,6 @@
             // btnEditPic
             // 
             this.btnEditPic.AutoSize = true;
-            this.btnEditPic.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEditPic.Enabled = false;
             this.btnEditPic.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnEditPic.Location = new System.Drawing.Point(296, 3);
@@ -151,7 +150,6 @@
             // btnSelectPic
             // 
             this.btnSelectPic.AutoSize = true;
-            this.btnSelectPic.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSelectPic.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSelectPic.Location = new System.Drawing.Point(441, 3);
             this.btnSelectPic.Name = "btnSelectPic";
@@ -163,7 +161,6 @@
             // btnMask
             // 
             this.btnMask.AutoSize = true;
-            this.btnMask.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnMask.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnMask.Location = new System.Drawing.Point(369, 3);
             this.btnMask.Name = "btnMask";

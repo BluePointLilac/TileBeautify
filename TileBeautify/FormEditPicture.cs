@@ -9,7 +9,7 @@ namespace TileBeautify {
         public FormEditPicture() {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
-            ResizeFont.KeepFontSize(pnlCommand);
+            new ResizeFont().KeepFontSize(pnlCommand);
             ResizeLocation();
             AddPicTile();
             BindEvent();
@@ -32,7 +32,7 @@ namespace TileBeautify {
                 pointDown = e.Location;
                 isMove = true;
             };
-            picEdited.MouseUp += (sender,e)=> isMove = false;
+            picEdited.MouseUp += (sender, e) => isMove = false;
 
             //调节缩放系数
             trbZoom.Scroll += (sender, e) => {
@@ -117,21 +117,17 @@ namespace TileBeautify {
         private void SendPicture(object sender, EventArgs e) {
             var p = (TilePic)sender;
             if (p.BorderStyle == BorderStyle.FixedSingle) {
-                var frm = new FormEditConfig {
-                    Icon = this.Icon
-                };
+                var frm = new FormEditConfig();
                 if (myBitmap != null) {
-                    double num = (double)myBitmap.Width / (double)picEdited.Width;
-                    int pX = Convert.ToInt32(num * (double)(p.Left - picEdited.Left));
-                    int pY = Convert.ToInt32(num * (double)(p.Top - picEdited.Top));
-                    int num2 = Convert.ToInt32(num * (double)(p.Width - 1));
+                    double num = (double)myBitmap.Width / picEdited.Width;
+                    int pX = Convert.ToInt32(num * (p.Left - picEdited.Left));
+                    int pY = Convert.ToInt32(num * (p.Top - picEdited.Top));
+                    int num2 = Convert.ToInt32(num * (p.Width - 1));
                     Bitmap part = PartImage.GetPart(myBitmap, pX, pY, num2, num2);
                     frm.picEditedView.Image = part;
                 }
-                pnlTile.Visible = false;
-                frm.FormClosed += delegate (object a, FormClosedEventArgs b) {
-                    pnlTile.Visible = true;
-                };
+                this.Hide();
+                frm.FormClosed += (a, b) => this.Show();
                 frm.ShowDialog();
             }
         }
@@ -270,7 +266,7 @@ namespace TileBeautify {
                 + "|jpg文件|*.jpg" + "|png文件|*.png" + "|bmp文件|*.bmp"
                 + "|jpeg文件|*.jpeg" + "|gif文件|*.gif" + "|所有文件|*.*"
             };
-            if(ofd.ShowDialog() != DialogResult.OK) return;
+            if (ofd.ShowDialog() != DialogResult.OK) return;
             string fileName = ofd.FileName;
             try {
                 new Bitmap(fileName, true);
@@ -401,7 +397,7 @@ namespace TileBeautify {
             public TileMode Style { get; set; }
 
             public TilePic() {
-                Height = (Width = SL);
+                Height = Width = SL;
                 MouseClick += PicTile_MouseClick;
                 MouseMove += PicTile_MouseMove;
                 MouseHover += PicTile_MouseHover;

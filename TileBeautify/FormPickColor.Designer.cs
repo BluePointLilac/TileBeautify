@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.picScreenShot = new System.Windows.Forms.PictureBox();
-            this.btnESC = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picScreenShot)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,22 +38,12 @@
             this.picScreenShot.TabIndex = 2;
             this.picScreenShot.TabStop = false;
             // 
-            // btnESC
-            // 
-            this.btnESC.Location = new System.Drawing.Point(601, 154);
-            this.btnESC.Name = "btnESC";
-            this.btnESC.Size = new System.Drawing.Size(89, 48);
-            this.btnESC.TabIndex = 3;
-            this.btnESC.Text = "btnESC";
-            this.btnESC.UseVisualStyleBackColor = true;
-            // 
             // FormPickColor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.picScreenShot);
-            this.Controls.Add(this.btnESC);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPickColor";
@@ -69,6 +58,5 @@
         #endregion
 
         public System.Windows.Forms.PictureBox picScreenShot;
-        private System.Windows.Forms.Button btnESC;
     }
 }
