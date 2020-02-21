@@ -11,7 +11,6 @@ namespace TileBeautify {
      * 方法来自：https://forums.mydigitallife.net/threads/net-allow-file-drop-with-uac-turned-on.45102/
      */
     public class ElevatedDragDropManager : IMessageFilter {
-
         #region "P/Invoke"
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]

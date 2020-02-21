@@ -36,7 +36,6 @@ namespace TileBeautify {
                 Square44x44Logo = ExeFolder + str3;
             }
         }
-
         //写入xml文件
         public void WriteXml() {
             XElement doc = new XElement("VisualElements");

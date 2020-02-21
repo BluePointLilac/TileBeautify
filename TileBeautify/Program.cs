@@ -14,7 +14,6 @@ namespace TileBeautify {
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new FormEditPicture());
 		}
-
 		[DllImport("user32.dll")]
 		private static extern bool SetProcessDPIAware();
 	}
